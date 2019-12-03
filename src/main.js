@@ -32,6 +32,16 @@ const createFilterTemplate = () => {
   );
 };
 
+const createTripInfoTemplate = () => {
+  return (
+    `<div class="trip-info__main">
+      <h1 class="trip-info__title">Amsterdam &mdash; ... &mdash; Amsterdam</h1>
+  
+      <p class="trip-info__dates">Mar 18&nbsp;&mdash;&nbsp;21</p>
+    </div>`
+  );
+};
+
 const render = (container, template, place = `beforeend`) => {
   container.insertAdjacentHTML(place, template);
 };
@@ -41,3 +51,6 @@ render(tripControlsElement, createFilterTemplate());
 
 const menuTitleElement = tripControlsElement.querySelector(`.visually-hidden`);
 render(menuTitleElement, createMenuTemplate(), `afterend`);
+
+const tripInfoElement = document.querySelector(`.trip-info`);
+render(tripInfoElement, createTripInfoTemplate(), `afterbegin`);
